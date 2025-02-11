@@ -2,11 +2,20 @@
 
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::resource('games', GameController::class);
+
+Route::get('/movies', function() {
+    return Inertia::render('Movies/Index');
+});
+
+Route::get('/students', function(){
+    return Inertia::render('Studends/Index');
+});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
