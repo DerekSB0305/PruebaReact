@@ -9,4 +9,11 @@ class Movies extends Model
 {
     /** @use HasFactory<\Database\Factories\MoviesFactory> */
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'description',
+        'classification',
+        'price'
+    ];
 }

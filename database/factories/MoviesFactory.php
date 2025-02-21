@@ -17,7 +17,10 @@ class MoviesFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake() -> sentence(3),
+            'description' => fake() -> sentence(8),
+            'classification' => fake() -> randomLetter(),
+            'price' => fake() -> numberBetween(60, 160)
         ];
     }
 }

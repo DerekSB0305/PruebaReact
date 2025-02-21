@@ -17,7 +17,10 @@ class StudentsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake() -> sentence(2),
+            'lastname' => fake() -> sentence(2),
+            'grade' => fake() -> randomLetter(),
+            'group' => fake() -> numberBetween(1, 10)
         ];
     }
 }

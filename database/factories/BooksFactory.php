@@ -17,7 +17,10 @@ class BooksFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake() -> sentence(3),
+            'autor' => fake() -> sentence(1),
+            'description' => fake() -> sentence(8),
+            'price' => fake() -> numberBetween(500, 1000)
         ];
     }
 }
