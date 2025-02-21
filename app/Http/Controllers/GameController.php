@@ -31,7 +31,12 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        Games::create($request -> all());
+
+        return response()->json([
+            // 'data' => 'data'
+            'message' => 'Datos guardados'
+        ]);
     }
 
     /**
