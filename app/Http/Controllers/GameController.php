@@ -31,6 +31,9 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'price' => ['numeric', 'required']
+        ]);
         Games::create($request -> all());
 
         return response()->json([
