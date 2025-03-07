@@ -32,14 +32,11 @@ class GameController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'price' => ['numeric', 'required']
+            'price' => ['required', 'numeric']
         ]);
         Games::create($request -> all());
 
-        return response()->json([
-            // 'data' => 'data'
-            'message' => 'Datos guardados'
-        ]);
+        return back();
     }
 
     /**
