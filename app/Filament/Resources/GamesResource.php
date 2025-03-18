@@ -6,6 +6,7 @@ use App\Filament\Resources\GamesResource\Pages;
 use App\Filament\Resources\GamesResource\RelationManagers;
 use App\Models\Games;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -26,12 +27,18 @@ class GamesResource extends Resource
         return $form
             ->schema([
                 TextInput::make('name')
+                    ->required()
                     ->label('Nombre'),
                 TextInput::make('classification')
                     ->label('Clasificacion'),
+                    FileUpload::make('image')
+                    ->imageEditor()
+                    ->image(),
                 TextInput::make('genre')
                     ->label('Genero'),
                 TextInput::make('price')
+                    ->required()
+                    ->numeric()
                     ->label('Precio')
             ]);
     }
@@ -41,12 +48,15 @@ class GamesResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->searchable()
                     ->label('Nombre'),
                 TextColumn::make('classification')
                     ->label('Clasificación'),
                 TextColumn::make('genre')
+                    ->toggleable()
                     ->label('Genero'),
                 TextColumn::make('price')
+                    ->searchable()
                     ->label('Precio')
             ])
             ->filters([
