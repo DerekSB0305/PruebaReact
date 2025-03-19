@@ -14,6 +14,7 @@ class Games extends Model
         'name',
         'classification',
         'genre',
-        'price'
+        'price',
+        'image'
     ];
 }

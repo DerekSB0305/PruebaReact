@@ -31,15 +31,16 @@ class GamesResource extends Resource
                     ->label('Nombre'),
                 TextInput::make('classification')
                     ->label('Clasificacion'),
-                    FileUpload::make('image')
-                    ->imageEditor()
-                    ->image(),
                 TextInput::make('genre')
                     ->label('Genero'),
                 TextInput::make('price')
                     ->required()
                     ->numeric()
-                    ->label('Precio')
+                    ->label('Precio'),
+                    FileUpload::make('image')
+                    ->disk('public')
+                    ->imageEditor()
+                    ->image()
             ]);
     }
 
