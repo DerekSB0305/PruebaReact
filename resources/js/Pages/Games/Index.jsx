@@ -6,7 +6,7 @@ export default function Index({games}) {
     return (
         <>
             <Navbar></Navbar>
-            <Link href={route('games.create')} className="p-4 bg-black text-white rounded-lg mt-4">Crear Nuevo</Link>
+            <section className="grid grid-cols-3 gap-10 p-20">
             {games?.map((game) =>(
                 <Card 
                 key = {game.id} 
@@ -14,8 +14,10 @@ export default function Index({games}) {
                 classification = {game.classification}
                 genre = {game.genre}
                 price = {game.price}
+                image = {game.image}
                 />  
             ))}
+            </section>
 
             <div>Hay {Object.keys(games).length} juegos en la base de datos </div>
         </>
